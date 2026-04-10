@@ -1,91 +1,113 @@
-<!doctype html>
-<html>
-<head> 
-<title>
-	Winter
-</title>
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumisivu ❄️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      overflow-x: hidden;
+    }
 
-<style>
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
 
+    h1 {
+      font-size: 3em;
+      margin-top: 40px;
+    }
 
-	#otsikko {
-		font-size : 40px;
-		border : solid 3px #ff0000;
-		width: 500px;
-		height : 50px;
-		text-align : center;
-		padding : 20px;
-		border-radius : 10px;
-		background : #dddddd;
-		font-weight : bold;
-		position : absolute;
-		left:480px;
-	}
+    h2 {
+      margin-top: 30px;
+    }
 
-	#linkit {
-	font-size : 40px;
-		border : dashed 3px #ff0000;
-		width: 130px;
-		height : 70px;
-		text-align : center;
-		padding : 2px;
-		border-radius : 5px;
-		//background : #dddddd;
-		font-weight : bold;
-		position : absolute;
-		left:20px;
-		font-size : 20px;
-		top:150px;
-}
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
 
+    .button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background: white;
+      color: #2c5364;
+      transition: 0.3s;
+    }
 
+    .button:hover {
+      background: #ddd;
+    }
 
-.linkki {
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      user-select: none;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
 
-	color:#ff0000;
-	text-decoration : none;	
-	
-
-
-
-
-}
-
-.linkki: visited {
-
-	color: #00ff00;
-
-}
-
-.linkki:hover{
-color: #00ff00;
-font-size : 21px;
-}
-
-
-
-</style>
-
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
 </head>
-<body background="talvi.jpg" height="10px" Width="200px" />
-
-
 <body>
-  
-      <div id="otsikko">
-              winter
-     </div>
-	
-	<div id="linkit">
-		<a href="https://www.youtube.com/" class="linkki">ylin</a><br />
-	<a href="tokasivu.html"class="linkki">keskel</a><br />
-		<a href="ekasivu.html"class="linkki">alin</a><br />	
-	</div>
 
-	<img src="winter.jpg" height="130px" />
+  <div class="container">
+    <h1>❄️ Talven taikaa ❄️</h1>
+    <p>Lumi tekee maailmasta rauhallisen ja kauniin. Se peittää maiseman valkoiseen peitteeseen ja tuo mukanaan talven tunnelman.</p>
 
+    <h2>Mitä lumi on?</h2>
+    <p>Lumi muodostuu, kun vesihöyry jäätyy pilvissä jääkiteiksi. Nämä kiteet yhdistyvät lumihiutaleiksi ja putoavat maahan. Jokainen lumihiutale on ainutlaatuinen.</p>
 
+    <h2>Miksi lumi on tärkeää?</h2>
+    <p>Lumi suojaa kasveja kylmältä, varastoi vettä kevättä varten ja vaikuttaa ilmastoon heijastamalla auringonvaloa takaisin avaruuteen.</p>
+
+    <h2>Hauskoja faktoja</h2>
+    <p>❄️ Lumihiutaleissa on yleensä kuusi sakaraa.<br>
+       ❄️ Lumi voi toimia eristeenä.<br>
+       ❄️ Maailman suurin lumihiutale on ollut jopa 38 cm leveä.</p>
+
+    <button class="button" onclick="window.location.href='https://fi.wikipedia.org/wiki/Lumi'">
+      Lue lisää lumesta
+    </button>
+  </div>
+
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.innerText = '❄';
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+
+      document.body.appendChild(snowflake);
+
+      setTimeout(() => {
+        snowflake.remove();
+      }, 5000);
+    }
+
+    setInterval(createSnowflake, 200);
+  </script>
 
 </body>
-
 </html>
